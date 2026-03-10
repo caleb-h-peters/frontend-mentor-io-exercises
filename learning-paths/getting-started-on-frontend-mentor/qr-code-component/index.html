@@ -39,6 +39,27 @@
                .comparisons {
                 position:absolute;
                 z-index:3000;
+                background: var(--slate-500);
+                color: white;
+                top:.5rem;
+                left: .5rem;
+                padding: .5rem .75rem .75rem .75rem;
+                border-radius: .5rem;
+                & legend {
+                    display: inline-block;
+                    font-size: .875rem;
+                    margin-bottom: -.125rem;
+                }
+                & label {
+                    font-size: .875rem;
+                    margin-right: .5rem;
+                    &:last-of-type{
+                         margin-right: .5rem;
+                    }
+                    & input {
+                         transform: translateY(2px);
+                    }
+                }
                }
                .desktop-compare {
                     height: auto;
@@ -134,8 +155,16 @@
      </head>
      <body>
       <div class="comparisons">
-        <input type="checkbox" id="desktop"></input>
-        <input type="checkbox" id="mobile"></input>
+          <fieldset>
+          <legend>Reference Toggles</legend>
+          <label>
+               <input type="checkbox" id="desktop"> Desktop
+          </label>
+          <label>
+               <input type="checkbox" id="mobile"> Mobile
+          </label>
+          </fieldset>
+     </div>
       </div>
           <project>
                <img class="desktop-compare" src="design/desktop-design.jpg" />
@@ -151,7 +180,7 @@
                </figure>
           </project>
 
-          <div class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.</div>
+          <div class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Caleb Peters</a>.</div>
           <script src="" async defer></script>
      </body>
 </html>

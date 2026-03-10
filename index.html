@@ -1,0 +1,115 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+     <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <title></title>
+          <meta name="description" content="" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="stylesheet" href="" />
+          <style>
+               :root {
+                    font-family: sans-serif;
+                    line-height: 1.75;
+                    background: rgb(226, 229, 241);
+               }
+               body {
+                    width: 100vw;
+                    height: 100svh;
+                    display: grid;
+               }
+               h1 {
+                    line-height: 1;
+                    margin-top: 0;
+               }
+               .navigation-list {
+                    margin-bottom: 0;
+                    padding-inline-start: 0em;
+                    font-family: monospace;
+                    line-height: 2;
+                    & .folder {
+                         list-style-type: none;
+                         list-style-position: unset;
+                         &:before {
+                              content: "\🗁";
+                              margin-right: -0.15em;
+                         }
+                    }
+                    & .item {
+                         list-style-type: none;
+                         list-style-position: unset;
+                         &:before {
+                              content: "↖";
+                              display: inline-block;
+                              transform: scaleX(-1) scale(0.7);
+                              border-radius: 5px;
+                              color: white;
+                              background: black;
+                              padding: 0.25em 0.2em 0.2em 0.25em;
+                              height: 1em;
+                              width: 1em;
+                              line-height: 1;
+                              font-weight: 800;
+                              margin-right: 0.35em;
+                              transition: 0.2s;
+                         }
+                         &:has(a) {
+                              transition: 0.2s;
+                              &:hover:before {
+                                   margin-right: 0.5em;
+                                   transition: 0.2s;
+                              }
+                              &:hover {
+                                   font-weight: bold;
+                                   transition: 0.2s;
+                              }
+                         }
+                    }
+               }
+               .navigation-wrap {
+                    background: white;
+                    padding: 2rem;
+                    width: auto;
+                    place-self: center;
+                    border-radius: 1em;
+                    box-shadow: 0px 5px 40px -25px rgba(0, 0, 0, 0.2);
+               }
+          </style>
+     </head>
+     <body>
+          <div class="navigation-wrap">
+               <h1>Frontend Mentor Exercises</h1>
+               <ul class="navigation-list">
+                    <li class="folder">
+                         Challenges
+                         <ul class="folder-wrap">
+                              <li class="item">None yet...</li>
+                         </ul>
+                    </li>
+                    <li class="folder">
+                         Learning Paths
+                         <ul class="folder-wrap">
+                              <li class="folder">
+                                   Getting Started With Frontend Mentor
+                                   <ul class="folder-wrap">
+                                        <li class="item"><a href="/learning-paths/getting-started-on-frontend-mentor/qr-code-component/index.html">QR Code Component</a></li>
+                                   </ul>
+                              </li>
+                              <li class="folder">
+                                   Building Responsive Layouts
+                                   <ul class="folder-wrap">
+                                        <li class="item">None yet...</li>
+                                   </ul>
+                              </li>
+                         </ul>
+                    </li>
+               </ul>
+          </div>
+
+          <script src="" async defer></script>
+     </body>
+</html>
