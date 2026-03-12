@@ -1,5 +1,48 @@
 :root {
-     font-size: 16px;
+     /* UTOPIA Type */
+     /* @link https://utopia.fyi/type/calculator?c=375,14,1.2,1440,16,1.125,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+     /* Step -2: 9.7222px → 12.642px */
+     --step--2: clamp(0.6076rem, 0.5434rem + 0.2742vw, 0.7901rem);
+     /* Step -1: 11.6667px → 14.2222px */
+     --step--1: clamp(0.7292rem, 0.6729rem + 0.24vw, 0.8889rem);
+     /* Step 0: 14px → 16px */
+     --step-0: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+     /* Step 1: 16.8px → 18px */
+     --step-1: clamp(1.05rem, 1.0236rem + 0.1127vw, 1.125rem);
+     /* Step 2: 20.16px → 20.25px */
+     --step-2: clamp(1.26rem, 1.258rem + 0.0085vw, 1.2656rem);
+     /* Step 3: 24.192px → 22.7813px */
+     --step-3: clamp(1.4238rem, 1.543rem + -0.1325vw, 1.512rem);
+     /* Step 4: 29.0304px → 25.6289px */
+     --step-4: clamp(1.6018rem, 1.8893rem + -0.3194vw, 1.8144rem);
+     /* Step 5: 34.8365px → 28.8325px */
+     --step-5: clamp(1.802rem, 2.3094rem + -0.5638vw, 2.1773rem);
+     /* Step 6: 41.8038px → 32.4366px */
+     --step-6: clamp(2.0273rem, 2.8189rem + -0.8795vw, 2.6127rem);
+
+     /* UTOPIA Space */
+     /* @link https://utopia.fyi/space/calculator?c=375,14,1.2,1440,16,1.125,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+     --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+     --space-2xs: clamp(0.4375rem, 0.4155rem + 0.0939vw, 0.5rem);
+     --space-xs: clamp(0.6875rem, 0.6655rem + 0.0939vw, 0.75rem);
+     --space-s: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+     --space-m: clamp(1.3125rem, 1.2465rem + 0.2817vw, 1.5rem);
+     --space-l: clamp(1.75rem, 1.662rem + 0.3756vw, 2rem);
+     --space-xl: clamp(2.625rem, 2.493rem + 0.5634vw, 3rem);
+     --space-2xl: clamp(3.5rem, 3.3239rem + 0.7512vw, 4rem);
+     --space-3xl: clamp(5.25rem, 4.9859rem + 1.1268vw, 6rem);
+     /* One-up pairs */
+     --space-3xs-2xs: clamp(0.25rem, 0.162rem + 0.3756vw, 0.5rem);
+     --space-2xs-xs: clamp(0.4375rem, 0.3275rem + 0.4695vw, 0.75rem);
+     --space-xs-s: clamp(0.6875rem, 0.5775rem + 0.4695vw, 1rem);
+     --space-s-m: clamp(0.875rem, 0.6549rem + 0.939vw, 1.5rem);
+     --space-m-l: clamp(1.3125rem, 1.0704rem + 1.0329vw, 2rem);
+     --space-l-xl: clamp(1.75rem, 1.3099rem + 1.8779vw, 3rem);
+     --space-xl-2xl: clamp(2.625rem, 2.1408rem + 2.0657vw, 4rem);
+     --space-2xl-3xl: clamp(3.5rem, 2.6197rem + 3.7559vw, 6rem);
+     /* Custom pairs */
+     --space-s-l: clamp(0.875rem, 0.4789rem + 1.6901vw, 2rem);
+
      --white: hsl(0, 0%, 100%);
      --yellow: hsl(47, 88%, 63%);
      --gray-500: hsl(0, 0%, 42%);
@@ -7,26 +50,21 @@
      --font-family: "Figtree", sans-serif;
      --font-regular: 500;
      --font-bold: 800;
-     --font-size-base: 1rem;
-     --font-size-small: 0.875rem;
+     --font-size-base: var(--step-0);
+     --font-size-small: var(--step--1);
      font-family: var(--font-family);
      font-weight: var(--font-regular);
-     --outer-radius: 1.375rem;
-     --card-padding: 1.4rem;
+     --outer-radius: var(--space-l);
+     --card-padding: var(--space-m);
      --inner-radius: calc(var(--outer-radius) - var(--card-padding));
-
-     @media screen and (max-width: 375px) {
-          font-size: 14px;
-          --card-padding: 1.55rem;
-     }
 }
 body {
      background-color: var(--yellow);
-     height: 100svh;
-     width: 100vw;
-     display: grid;
-     grid-template-rows: 1fr 50px;
+     display: flex;
+     flex-direction: column;
      margin: 0;
+     height: 100vh;
+     width: 100svw;
 }
 h1.title {
      font-size: 1rem;
@@ -35,92 +73,41 @@ h1.title {
      color: var(--slate-500);
      font-weight: var(--font-regular);
      position: absolute;
-}
-
-.comparisons {
-     position: absolute;
-     justify-self: flex-start;
-     align-self: flex-end;
-     z-index: 3000;
-     background: var(--slate-500);
-     color: white;
-     margin: 0 0 0.5rem 0.5rem;
-     padding: 0.5rem 0.75rem 0.75rem 0.75rem;
-     border-radius: 0.5rem;
-     & legend {
-          display: inline-block;
-          font-size: 0.875rem;
-          margin-bottom: -0.125rem;
-     }
-     & label {
-          font-size: 0.875rem;
-          margin-right: 0.5rem;
-          &:last-of-type {
-               margin-right: 0.5rem;
-          }
-     }
-     & input {
-          transform: translateY(2px);
-     }
-}
-.desktop-compare {
-     height: auto;
-     opacity: 0%;
-     grid-row: 1/2;
-     position: absolute;
-     mix-blend-mode: difference;
-     object-fit: cover;
-     pointer-events: none;
-     width: 1440px;
-     place-self: center;
-     transform: translateY(0px);
-     z-index: 9999;
-}
-body:has(input#desktop:checked) .desktop-compare {
-     opacity: 60%;
-}
-.mobile-compare {
-     height: auto;
-     opacity: 0%;
-     grid-row: 1/2;
-     position: absolute;
-     mix-blend-mode: difference;
-     object-fit: cover;
-     pointer-events: none;
-     width: 375px;
-     place-self: center;
-     z-index: 9999;
-     transform: translateY(0px);
-}
-body:has(input#mobile:checked) .mobile-compare {
-     opacity: 60%;
+     top: 0;
+     left: 0;
 }
 main {
-     grid-row: 1/2;
-     height: 100%;
-     width: auto;
-     display: grid;
+     flex-grow: 1;
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     justify-items: center;
+     align-items: center;
+     padding: var(--space-m);
+     & a {
+          color: inherit;
+          text-decoration: none;
+     }
 }
-article {
+article.post-card {
      display: flex;
      flex-direction: column;
-     place-self: center;
-     gap: 1.5rem;
+     gap: var(--space-s);
      padding: var(--card-padding);
      background-color: var(--white);
      border-radius: var(--outer-radius);
      border: 2px solid var(--gray-950);
      max-width: 21rem;
      text-align: left;
-     box-shadow: 8px 8px var(--gray-950);
-     @media screen and (max-width: 375px) {
-          max-width: 20rem;
-          gap: 1.7rem;
+     box-shadow: var(--space-2xs) var(--space-2xs) var(--gray-950);
+     height: fit-content;
+     & > * {
+          margin: 0;
      }
      & .image-area {
-          border-radius: 0.75rem;
+          border-radius: var(--inner-radius);
           overflow: hidden;
-          margin: 0;
+          margin-bottom: var(--space-2xs);
           height: 100%;
           width: 100%;
           display: flex;
@@ -128,7 +115,12 @@ article {
           position: relative;
           aspect-ratio: 16/9.5;
           @media screen and (max-width: 375px) {
-               aspect-ratio: 16/11.5;
+               aspect-ratio: 16/11;
+          }
+          background: var(--yellow);
+          &:hover img {
+               opacity: 0.65;
+               transition: opacity 0.15s ease-out;
           }
           & img {
                height: 100%;
@@ -138,95 +130,81 @@ article {
                position: absolute;
                z-index: inherit;
                inset: 0;
+               transition: opacity 0.2s ease-out;
+               will-change: opacity;
           }
      }
-     & .content-area {
+     & .post-meta {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
-          @media screen and (max-width: 375px) {
-               gap: 1.25rem;
-          }
-          & > * {
+          gap: var(--space-xs);
+     }
+     & .post-category {
+          background: var(--yellow);
+          width: fit-content;
+          padding: var(--space-2xs) var(--space-xs);
+          font-size: var(--font-size-small);
+          font-weight: var(--font-bold);
+          border-radius: var(--space-3xs);
+          line-height: 1.2;
+     }
+     & .post-timestamp {
+          font-size: var(--font-size-small);
+          color: var(--gray-950);
+     }
+     & .post-content {
+          & * {
                margin: 0;
           }
-          & .post-meta {
-               display: flex;
-               flex-direction: column;
-               gap: 0.8rem;
-               @media screen and (max-width: 375px) {
-                    gap: 0.9rem;
-               }
-          }
-          & .tag-category {
-               background: var(--yellow);
-               width: fit-content;
-               padding: 0.4rem 0.8rem;
-               font-size: var(--font-size-small);
-               font-weight: var(--font-bold);
-               border-radius: 0.25rem;
-               line-height: 1.2;
-               @media screen and (max-width: 375px) {
-                    padding: 0.4rem 0.9rem;
-               }
-          }
-          & .publish-timestamp {
-               font-size: var(--font-size-small);
-               color: var(--gray-950);
-          }
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-2xs);
+          margin: var(--space-3xs-2xs) 0 var(--space-2xs-xs) 0;
      }
-     & h2 {
+     & .post-title {
           color: var(--gray-950);
-          font-size: 1.475rem;
-          line-height: 1.25;
+          font-size: var(--step-3);
+          line-height: 1.125;
           letter-spacing: 0.015em;
-          margin-top: 0.075rem;
-          @media screen and (max-width: 375px) {
-               font-size: 1.4rem;
+          & a {
+               will-change: color;
+               transition: color 0.2s ease-out;
+          }
+          & a:hover {
+               color: var(--yellow);
+               transition: color 0.15s ease-out;
           }
      }
-     & p.article-excerpt {
+     & .post-excerpt {
           color: var(--gray-500);
           line-height: 1.5;
-          letter-spacing: 0em;
-          margin-bottom: 0.5rem;
-          @media screen and (max-width: 375px) {
-               margin-bottom: 0.25rem;
-          }
      }
-     & footer {
+     & .post-author {
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 0.75rem;
+          gap: var(--space-xs);
           font-weight: var(--font-bold);
           font-size: var(--font-size-small);
-
           & p {
                margin: 0;
                line-height: 1;
           }
           & img {
-               height: 2.0625rem;
+               height: var(--space-l);
                width: auto;
-               @media screen and (max-width: 375px) {
-                    height: 2.375rem;
-               }
           }
      }
 }
-
 .attribution {
-     grid-row: 2/3;
-     font-size: 0.75rem;
+     flex-grow: 0;
+     font-size: var(--step--2);
      text-align: center;
-     position: fixed;
-     bottom: 0;
-     place-self: center;
      background: rgb(238, 238, 238);
      width: 100%;
-     padding: 1rem;
+     padding: var(--space-xs);
      font-family: var(--font-family);
+     box-sizing: border-box;
 }
 .attribution a {
      color: hsl(228, 45%, 44%);

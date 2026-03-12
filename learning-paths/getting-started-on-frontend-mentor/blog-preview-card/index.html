@@ -13,34 +13,25 @@
      <body>
           <main>
                <h1 class="title">Getting Started on Frontend Mentor / Blog Preview Card</h1>
-               <img class="desktop-compare" alt="Reference for exercise's desktop design" src="design/desktop-design.jpg" />
-               <img class="mobile-compare" alt="Reference for exercise's mobile design" src="design/mobile-design.jpg" />
-               <article>
+               
+               <article class="post-card">
                     <figure class="image-area">
-                         <img src="assets/images/illustration-article.svg" alt="QR Code" />
+                         <a href="#"><img src="assets/images/illustration-article.svg" alt="QR Code" /></a>
                     </figure>
-                    <section class="content-area">
-                         <header class="post-meta">
-                              <span class="tag-category">Learning</span>
-                              <time datetime="2023-12-21" class="publish-timestamp">Published 21 Dec 2023</time>
-                         </header>
-                         <h2 class="article-title">HTML & CSS foundations</h2>
-                         <p class="article-excerpt">These languages are the backbone of every website, defining structure, content, and presentation.</p>
-                         <footer>
-                              <img src="assets/images/image-avatar.webp" alt="Picture of article author" />
-                              <p>Greg Hooper</p>
-                         </footer>
+                    <div class="post-meta">
+                      <span class="post-category">Learning</span>
+                    <time datetime="2023-12-21" class="post-timestamp">Published 21 Dec 2023</time>
+                    </div>
+                    <div class="post-content">
+                      <h2 class="post-title"><a href="#">HTML & CSS foundations</a></h2>
+                <p class="post-excerpt">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+                    </div>
+                <footer class="post-author">
+                    <img src="assets/images/image-avatar.webp" alt="Picture of article author" />
+                    <p>Greg Hooper</p>
+                </footer>
                     </section>
                </article>
-               <aside class="comparisons">
-                    <fieldset>
-                         <legend>Reference Toggles</legend>
-                         <input type="checkbox" id="desktop" aria-label="Toggles visibility of desktop reference image overlay." />
-                         <label for="desktop"> Desktop </label>
-                         <input type="checkbox" id="mobile" aria-label="Toggles visibility of mobile reference image overlay." />
-                         <label for="mobile"> Mobile </label>
-                    </fieldset>
-               </aside>
           </main>
 
           <footer class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Caleb Peters</a>.</footer>
